@@ -1,0 +1,49 @@
+﻿@using Fiorello.Areas.admin.ViewModels.User
+@model UserIndexVM
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+	<!-- Page Heading -->
+	<h1 class="h3 mb-2 text-gray-800">Products</h1>
+	<a class="btn btn-primary m-3" asp-action="create" asp-controller="user">Create</a>
+	<!-- DataTales Example -->
+	<div class="card shadow mb-4">
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>UserName</th>
+							<th>Fullname</th>
+							<th>Email</th>
+							<th>Roles</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var user in Model.Users)
+						{
+							<tr>
+								<td>@user.Username</td>
+								<td>@user.Fullname</td>
+								<td>@user.Email</td>
+								<td>
+									@foreach(var role in user.Roles)
+									{
+										<span>@role</span>
+									}
+								</td>
+								<td>
+									<a asp-action="details" asp-controller="user" asp-route-id="@user.Id" class="btn btn-primary">Details</a>
+									<a asp-action="update" asp-controller="user" asp-route-id="@user.Id" class="btn btn-primary">Update</a>
+									<a onclick="return DeleteConfirmation()" asp-action="delete" asp-controller="user" asp-route-id="@user.Id" class="btn btn-danger">Delete</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /.container-fluid -->

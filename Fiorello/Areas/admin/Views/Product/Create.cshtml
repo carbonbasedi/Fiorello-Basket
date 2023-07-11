@@ -1,0 +1,90 @@
+﻿@using Fiorello.Areas.admin.ViewModels.Product
+@using Fiorello.Enums;
+@model ProductCreateVM
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Create Product</h1>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <form enctype="multipart/form-data" asp-action="create" asp-controller="product" method="post">
+                <div class="form-group">
+                    <label asp-for="Title"></label>
+                    <input class="form-control" asp-for="Title">
+                    <span asp-validation-for="Description"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Price"></label>
+                    <input type="number" step=".01" class="form-control" asp-for="Price">
+                    <span asp-validation-for="Price"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="About"></label>
+                    <textarea class="form-control" asp-for="About"></textarea>
+                    <span asp-validation-for="About"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Type"></label>
+                    <select class="form-control form-select" asp-for="Type" asp-items="Html.GetEnumSelectList<ProductType>()">
+                        <option value="">-- Choose --</option>
+                    </select>
+                    <span asp-validation-for="Title"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description"></label>
+                    <textarea class="form-control" asp-for="Description"></textarea>
+                    <span asp-validation-for="Description"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AdditionalInfo"></label>
+                    <textarea class="form-control" asp-for="AdditionalInfo"></textarea>
+                    <span asp-validation-for="AdditionalInfo"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ProductCategoryId"></label>
+                    <select class="form-control form-select" asp-for="ProductCategoryId" asp-items="Model.ProductCategories">
+                        <option value="">-- Choose --</option>
+                    </select>
+                    <span asp-validation-for="Title"></span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" asp-for="Photos"></label></br>
+                    <input type="file" multiple class="form-label" asp-for="Photos">
+                    <span asp-validation-for="Photos"></span>
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+@section Scripts{
+    <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#Description'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#About'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#AdditionalInfo'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+}

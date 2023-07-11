@@ -1,0 +1,77 @@
+﻿@using Fiorello.Models
+@model List<Worker>
+
+<div class="vc_row wpb_row vc_row-fluid vc_custom_1526291277718"
+	 style="background-color:#f8f8f8">
+	<div class="wpb_column vc_column_container vc_col-sm-12">
+		<div class="vc_column-inner">
+			<div class="wpb_wrapper">
+				<div class="mkdf-row-grid-section-wrapper mkdf-content-aligment-center">
+					<div class="mkdf-row-grid-section">
+						<div class="vc_row wpb_row vc_inner vc_row-fluid vc_custom_1525433824560">
+							<div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-offset-3 vc_col-lg-6 vc_col-md-offset-1 vc_col-md-10">
+								<div class="vc_column-inner">
+									<div class="wpb_wrapper">
+										<div class="mkdf-section-title-holder   mkdf-st-subtitle-pos-under">
+											<div class="mkdf-st-inner">
+												<h2 class="mkdf-st-title">
+													Flower Experts
+												</h2>
+												<p class="mkdf-st-text"
+												   style="font-size: 17px;line-height: 29px">
+													A perfect blend of
+													creativity, energy,
+													communication, happiness and
+													love. Let us arrange a smile
+													for you.
+												</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mkdf-row-grid-section-wrapper ">
+					<div class="mkdf-row-grid-section">
+						<div class="vc_row wpb_row vc_inner vc_row-fluid">
+							@foreach(var worker in Model)
+							{
+							<div class="wpb_column vc_column_container vc_col-sm-6 vc_col-lg-3 vc_col-md-6">
+								<div class="vc_column-inner">
+									<div class="wpb_wrapper">
+										<div class="mkdf-team-holder mkdf-team-info-below-image">
+											<div class="mkdf-team-inner">
+												<div class="mkdf-team-image">
+													<img width="222"
+														 height="222"
+														 src="~/assets/img/@worker.Photo"
+														 class="attachment-full size-full"
+														 alt="a"
+														 sizes="(max-width: 222px) 100vw, 222px"
+														 loading="eager" />
+												</div>
+												<div class="mkdf-team-info">
+													<h6 class="mkdf-team-name">
+														@worker.Name @worker.Surname
+													</h6>
+													<span class="mkdf-team-position">@worker.Duty.Name</span>
+												</div>
+											</div>
+										</div>
+										<div class="vc_empty_space"
+											 style="height: 68px">
+											<span class="vc_empty_space_inner"></span>
+										</div>
+									</div>
+								</div>
+							</div>							
+							}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

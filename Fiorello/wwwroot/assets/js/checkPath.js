@@ -1,0 +1,4 @@
+if (window.location.href.indexOf("products/details") > -1) {
+    var body = document.querySelector('body');
+    body.className = 'product-template-default single single-product postid-251 theme-fiorello fiorello-core-1.3 woocommerce woocommerce-page woocommerce-no-js fiorello-ver-1.6 mkdf-grid-1300 mkdf-content-background-full-image mkdf-sticky-header-on-scroll-down-up mkdf-dropdown-animate-height mkdf-header-standard mkdf-menu-area-shadow-disable mkdf-menu-area-in-grid-shadow-disable mkdf-menu-area-border-disable mkdf-menu-area-in-grid-border-disable mkdf-logo-area-border-disable mkdf-woocommerce-page mkdf-woo-single-page mkdf-woocommerce-columns-4 mkdf-woo-medium-space mkdf-woo-pl-info-below-image mkdf-woo-single-thumb-on-left-side mkdf-woo-single-has-pretty-photo mkdf-default-mobile-header mkdf-sticky-up-mobile-header mkdf-slide-from-header-bottom wpb-js-composer js-comp-ver-6.10.0 vc_responsive';
+}

@@ -1,0 +1,50 @@
+﻿@using Fiorello.Areas.admin.ViewModels.Slider
+@model SliderListVM
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+	<!-- Page Heading -->
+	<h1 class="h3 mb-2 text-gray-800">Home Page Sliders</h1>
+	<a class="btn btn-primary" asp-action="create" asp-controller="slider">Create</a>
+	<!-- DataTales Example -->
+	<div class="card shadow mb-4">
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Active</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var slider in Model.Sliders)
+						{
+							<tr>
+								<td>@slider.Title</td>
+								<td>
+									@if (@slider.IsActive)
+									{
+										<span class="text-success">Active</span>
+									}
+									else
+									{
+										<span class="text-danger">Deactive</span>
+									}
+								</td>
+								<td>
+									<a class="btn btn-warning" asp-action="update" asp-controller="slider" asp-route-id="@slider.Id">Update</a>
+									<a onclick="return DeleteConfirmation()" class="btn btn-danger" asp-action="delete" asp-controller="slider" asp-route-id="@slider.Id">Delete</a>
+									<a class="btn btn-info" asp-action="details" asp-controller="slider" asp-route-id="@slider.Id">Details</a>
+									<a class="btn btn-info" asp-action="activate" asp-controller="slider" asp-route-id="@slider.Id">Acvt/DeAcvt</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /.container-fluid -->

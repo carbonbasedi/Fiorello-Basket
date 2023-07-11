@@ -1,0 +1,38 @@
+﻿@using Fiorello.Areas.admin.ViewModels.Duty
+@model DutyIndexVM
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+	<!-- Page Heading -->
+	<h1 class="h3 mb-2 text-gray-800">Duty List</h1>
+	<a class="btn btn-primary" asp-action="create" asp-controller="duty">Create</a>
+	<!-- DataTales Example -->
+	<div class="card shadow mb-4">
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var duty in Model.Duties)
+						{
+							<tr>
+								<td>@duty.Name</td>
+								<td>
+									<a class="btn btn-info" asp-action="details" asp-controller="duty" asp-route-id="@duty.Id">Details</a>
+									<a class="btn btn-primary" asp-action="update" asp-controller="duty" asp-route-id="@duty.Id">Update</a>
+									<a onclick="return DeleteConfirmation()" class="btn btn-danger" asp-action="delete" asp-controller="duty" asp-route-id="@duty.Id">Delete</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /.container-fluid -->

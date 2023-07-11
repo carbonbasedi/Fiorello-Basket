@@ -1,0 +1,41 @@
+﻿@using Fiorello.Areas.admin.ViewModels.Faq
+@model FaqListVM
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+	<!-- Page Heading -->
+	<h1 class="h3 mb-2 text-gray-800">Faqs</h1>
+	<a class="btn btn-primary m-3" asp-action="create" asp-controller="faq">Create</a>
+	<!-- DataTales Example -->
+	<div class="card shadow mb-4">
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Created At</th>
+							<th>Modified At</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var faq in Model.Faqs)
+						{
+							<tr>
+								<td>@faq.Title</td>
+								<td>@faq.CreatedAt.ToString("dd.MM.yyyy HH:mm:ss")</td>
+								<td>@faq.ModifiedAt?.ToString("dd.MM.yyyy HH:mm:ss")</td>
+								<td>
+									<a asp-action="update" asp-controller="faq" asp-route-id="@faq.Id" class="btn btn-primary">Update</a>
+									<a onclick="return DeleteConfirmation()" asp-action="delete" asp-controller="faq" asp-route-id="@faq.Id" class="btn btn-danger">Delete</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /.container-fluid -->

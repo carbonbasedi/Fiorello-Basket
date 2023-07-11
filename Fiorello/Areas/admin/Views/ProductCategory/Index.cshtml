@@ -1,0 +1,56 @@
+﻿@using Fiorello.Areas.admin.ViewModels.ProductCategory;
+@model ProductCategoryIndexVM
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+	<!-- Page Heading -->
+	<h1 class="h3 mb-2 text-gray-800">Product Categories</h1>
+	<a class="btn btn-primary" asp-action="create" asp-controller="productcategory">Create</a>
+	<!-- DataTales Example -->
+	<div class="card shadow mb-4">
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Created At</th>
+							<th>Modified At</th>
+							<th>Status</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var productCategory in Model.ProductCategories)
+						{
+							<tr>
+								<td>@productCategory.Name</td>
+								<td>@productCategory.CreatedAt.ToString("dd.MM.yyyy HH:mm:ss")</td>
+								<td>@productCategory.ModifiedAt?.ToString("dd.MM.yyyy HH:mm:ss")</td>
+								<td>
+									@if (productCategory.IsDeleted)
+									{
+										<span class="text-danger">Deleted</span>
+									}
+									else
+									{
+										<span class="text-success">Active</span>
+									}
+								</td>
+								<td>
+									@if (!productCategory.IsDeleted)
+									{
+										<a asp-action="update" asp-controller="productcategory" asp-route-id="@productCategory.Id" class="btn btn-primary">Update</a>
+										<a onclick="return DeleteConfirmation()" asp-action="delete" asp-controller="productcategory" asp-route-id="@productCategory.Id" class="btn btn-danger">Delete</a>
+									}
+									<a asp-action="details" asp-controller="productcategory" asp-route-id="@productCategory.Id" class="btn btn-info">Details</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /.container-fluid -->

@@ -1,0 +1,25 @@
+﻿@using Fiorello.Areas.admin.ViewModels.Product
+@model ProductPhotoUpdateVM
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+	<!-- Page Heading -->
+	<h1 class="h3 mb-2 text-gray-800">Update Product Photo</h1>
+
+	<!-- DataTales Example -->
+	<div class="card shadow mb-4">
+		<div class="card-body">
+			<form enctype="multipart/form-data" asp-action="updatephoto" asp-controller="product" method="post">
+				<div class="form-group">
+					<label asp-for="Order"></label>
+					<input class="form-control" asp-for="Order" />
+					<span asp-validation-for="Order"></span>
+				</div>
+				<button type="submit" class="btn btn-primary">Update</button>
+			</form>
+		</div>
+	</div>
+
+</div>
+<!-- /.container-fluid -->

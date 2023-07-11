@@ -1,0 +1,77 @@
+﻿@using Fiorello.Areas.admin.ViewModels.User;
+@model UserCreateVM
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Create User</h1>
+
+    <div asp-validation-summary="ModelOnly">
+    </div>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <form asp-action="create" asp-controller="user" method="post">
+                <div class="form-group">
+                    <label asp-for="Username"></label>
+                    <input class="form-control" asp-for="Username" />
+                    <span asp-validation-for="Username"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Fullname"></label>
+                    <input class="form-control" asp-for="Fullname" />
+                    <span asp-validation-for="Fullname"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Country"></label>
+                    <input class="form-control" asp-for="Country" />
+                    <span asp-validation-for="Country"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PhoneNumber"></label>
+                    <input class="form-control" asp-for="PhoneNumber" />
+                    <span asp-validation-for="PhoneNumber"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input class="form-control" asp-for="Email" />
+                    <span asp-validation-for="Email"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input class="form-control" asp-for="Password" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input class="form-control" asp-for="ConfirmPassword" />
+                    <span asp-validation-for="ConfirmPassword"></span>
+                </div>
+                <div>
+                    <select asp-for="RolesIds" asp-items="Model.Roles" multiple="multiple">
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+@section Scripts{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+    <script>
+        $(document).ready(function () {
+            $('#RolesIds').multiselect({
+                includeSelectAllOption: true,
+            });
+        });
+    </script>
+}

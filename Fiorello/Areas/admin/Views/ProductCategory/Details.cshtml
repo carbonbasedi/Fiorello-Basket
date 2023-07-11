@@ -1,0 +1,59 @@
+﻿@using Fiorello.Areas.admin.ViewModels.ProductCategory;
+@model ProductCategoryDetailsVM
+
+<div class="m-4 form-group">
+	<a class="btn btn-primary" asp-action="index" asp-controller="productcategory">Return to list</a>
+	<h1>Name</h1>
+	<p>@Model.Name</p>
+	<br />
+	<h1>Created At</h1>
+	<p>@Model.CreatedAt.ToString("dd.MM.yyyy HH:mm:ss")</p>
+	<br />
+	<h1>Modified At</h1>
+	<p>@Model.ModifiedAt?.ToString("dd.MM.yyyy HH:mm:ss")</p>
+
+	<div class="table-responsive">
+		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Category</th>
+					<th>Photo</th>
+					<th>Created At</th>
+					<th>Modified At</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var product in Model.Products)
+				{
+					<tr>
+						<td>@product.Title</td>
+						<td>@product.ProductCategory.Name</td>
+						<td>@product.CreatedAt.ToString("dd.MM.yyyy HH:mm:ss")</td>
+						<td>@product.ModifiedAt?.ToString("dd.MM.yyyy HH:mm:ss")</td>
+						<td>
+							@if (product.IsDeleted)
+							{
+								<span class="text-danger">Deleted</span>
+							}
+							else
+							{
+								<span class="text-success">Active</span>
+							}
+						</td>
+						<td>
+							@if (!product.IsDeleted)
+							{
+								<a asp-action="update" asp-controller="work" asp-route-id="@product.Id" class="btn btn-primary">Update</a>
+								<a onclick="return DeleteConfirmation()" asp-action="delete" asp-controller="work" asp-route-id="@product.Id" class="btn btn-danger">Delete</a>
+							}
+							<a asp-action="details" asp-controller="work" asp-route-id="@product.Id" class="btn btn-info">Details</a>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+
+</div>

@@ -1,0 +1,48 @@
+﻿@using Fiorello.Areas.admin.ViewModels.Worker
+@model WorkerListVM
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+	<!-- Page Heading -->
+	<h1 class="h3 mb-2 text-gray-800">Worker</h1>
+	<a class="btn btn-primary m-3" asp-action="create" asp-controller="worker">Create</a>
+	<!-- DataTales Example -->
+	<div class="card shadow mb-4">
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>Profile Picture</th>
+							<th>Fullname</th>
+							<th>Duty</th>
+							<th>Created At</th>
+							<th>Modified At</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var worker in Model.Workers)
+						{
+							<tr>
+								<td>
+									<img class="w-25" src="~/assets/img/@worker.Photo">
+								</td>
+								<td>@worker.Name @worker.Surname</td>
+								<td>@worker.Duty.Name</td>
+								<td>@worker.CreatedAt.ToString("dd.MM.yyyy HH:mm:ss")</td>
+								<td>@worker.ModifiedAt?.ToString("dd.MM.yyyy HH:mm:ss")</td>
+								<td>
+									<a asp-action="update" asp-controller="worker" asp-route-id="@worker.Id" class="btn btn-primary">Update</a>
+									<a onclick="return DeleteConfirmation()" asp-action="delete" asp-controller="worker" asp-route-id="@worker.Id" class="btn btn-danger">Delete</a>
+									<a asp-action="details" asp-controller="worker" asp-route-id="@worker.Id" class="btn btn-info">Details</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /.container-fluid -->

@@ -1,0 +1,47 @@
+﻿@using Fiorello.Areas.admin.ViewModels.Duty
+@model DutyDetailsVM
+
+<div class="m-4 form-group">
+	<a class="btn btn-primary" asp-action="list" asp-controller="duty">Return to list</a>
+	<h3>Name</h3>
+	<p>@Model.Name</p>
+	<h3>Created At</h3>
+	<p>@Model.CreatedAt.ToString("dd.MM.yyyy HH:mm:ss")</p>
+	<h3>Modified At</h3>
+	<p>@Model.ModifiedAt?.ToString("dd.MM.yyyy HH:mm:ss")</p>
+	<br />
+
+	<div class="table-responsive">
+		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			<thead>
+				<tr>
+					<th>Worker Full Name</th>
+					<th>Photo</th>
+					<th>Created At</th>
+					<th>Modified At</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var worker in Model.Workers)
+				{
+					<tr>
+						<td>@worker.Name @worker.Surname</td>
+						<td><img class="w-25" src="~/assets/img/@worker.Photo"></td>
+						<td>@worker.CreatedAt.ToString("dd.MM.yyyy HH:mm:ss")</td>
+						<td>@worker.ModifiedAt?.ToString("dd.MM.yyyy HH:mm:ss")</td>
+						<td>
+							@if (!worker.IsDeleted)
+							{
+								<a asp-action="update" asp-controller="worker" asp-route-id="@worker.Id" class="btn btn-primary">Update</a>
+								<a onclick="return DeleteConfirmation()" asp-action="delete" asp-controller="worker" asp-route-id="@worker.Id" class="btn btn-danger">Delete</a>
+							}
+							<a asp-action="details" asp-controller="worker" asp-route-id="@worker.Id" class="btn btn-info">Details</a>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+
+</div>

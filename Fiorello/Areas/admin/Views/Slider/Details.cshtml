@@ -1,0 +1,44 @@
+﻿@using Fiorello.Areas.admin.ViewModels.Slider
+@model SliderDetailsVM
+<div class="m-4 form-group">
+	<a class="btn btn-primary" asp-action="list" asp-controller="slider">Return to list</a>
+	<h1>Name</h1>
+	<p>@Model.Title</p>
+	<br />
+	<h1>Created At</h1>
+	<p>@Model.CreatedAt.ToString("dd.MM.yyyy HH:mm:ss")</p>
+	<br />
+	<h1>Modified At</h1>
+	<p>@Model.ModifiedAt?.ToString("dd.MM.yyyy HH:mm:ss")</p>
+
+	<div class="table-responsive">
+		<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Category</th>
+					<th>Created At</th>
+					<th>Modified At</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var sliderContent in Model.SliderContents)
+				{
+					<tr>
+						<td>@sliderContent.Title</td>
+						<td>@sliderContent.Slider.Title</td>
+						<td>@sliderContent.CreatedAt.ToString("dd.MM.yyyy HH:mm:ss")</td>
+						<td>@sliderContent.ModifiedAt?.ToString("dd.MM.yyyy HH:mm:ss")</td>
+						<td>
+							<a asp-action="update" asp-controller="slider" asp-route-id="@sliderContent.Id" class="btn btn-primary">Update</a>
+							<a onclick="return DeleteConfirmation()" asp-action="delete" asp-controller="slider" asp-route-id="@sliderContent.Id" class="btn btn-danger">Delete</a>
+							<a asp-action="details" asp-controller="slider" asp-route-id="@sliderContent.Id" class="btn btn-info">Details</a>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+
+</div>

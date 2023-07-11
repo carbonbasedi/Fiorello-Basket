@@ -1,0 +1,42 @@
+﻿@using Fiorello.Areas.admin.ViewModels.SliderContent
+@model SliderContentListVM
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+	<!-- Page Heading -->
+	<h1 class="h3 mb-2 text-gray-800">Slider Content</h1>
+	<a class="btn btn-primary m-3" asp-action="create" asp-controller="slidercontent">Create</a>
+	<!-- DataTales Example -->
+	<div class="card shadow mb-4">
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Slider Title</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						@if (Model.SliderContents is not null)
+						{
+							@foreach (var sliderContent in Model.SliderContents)
+							{
+								<tr>
+									<td>@sliderContent.Title</td>
+									<td>@sliderContent.Slider.Title</td>
+									<td>
+										<a asp-action="update" asp-controller="slidercontent" asp-route-id="@sliderContent.Id" class="btn btn-primary">Update</a>
+										<a onclick="return DeleteConfirmation()" asp-action="delete" asp-controller="slidercontent" asp-route-id="@sliderContent.Id" class="btn btn-danger">Delete</a>
+										<a asp-action="details" asp-controller="slidercontent" asp-route-id="@sliderContent.Id" class="btn btn-info">Details</a>
+									</td>
+								</tr>
+							}
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

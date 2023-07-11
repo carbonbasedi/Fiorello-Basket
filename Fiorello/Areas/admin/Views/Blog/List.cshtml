@@ -1,0 +1,45 @@
+﻿@using Fiorello.Areas.admin.ViewModels.Blog
+@model BlogListVM
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+	<!-- Page Heading -->
+	<h1 class="h3 mb-2 text-gray-800">Blogs</h1>
+	<a class="btn btn-primary m-3" asp-action="create" asp-controller="blog">Create</a>
+	<!-- DataTales Example -->
+	<div class="card shadow mb-4">
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+					<thead>
+						<tr>
+							<th>Blog Image</th>
+							<th>Blog Title</th>
+							<th>Created At</th>
+							<th>Modified At</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var blog in Model.Blogs)
+						{
+							<tr>
+								<td>
+									<img class="w-25" src="~/assets/img/@blog.Image">
+								</td>
+								<td>@blog.Title</td>
+								<td>@blog.CreatedAt.ToString("dd.MM.yyyy HH:mm:ss")</td>
+								<td>@blog.ModifiedAt?.ToString("dd.MM.yyyy HH:mm:ss")</td>
+								<td>
+									<a asp-action="update" asp-controller="blog" asp-route-id="@blog.Id" class="btn btn-primary">Update</a>
+									<a onclick="return DeleteConfirmation()" asp-action="delete" asp-controller="blog" asp-route-id="@blog.Id" class="btn btn-danger">Delete</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /.container-fluid -->

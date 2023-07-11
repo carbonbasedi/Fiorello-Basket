@@ -1,0 +1,77 @@
+﻿@using Fiorello.Areas.admin.ViewModels.Blog
+@model BlogUpdateVM
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+	<!-- Page Heading -->
+	<h1 class="h3 mb-2 text-gray-800">Update Blog</h1>
+
+	<!-- DataTales Example -->
+	<div class="card shadow mb-4">
+		<div class="card-body">
+			<form enctype="multipart/form-data" asp-action="update" asp-controller="blog" method="post">
+				<div class="form-group">
+					<label asp-for="Title"></label>
+					<input class="form-control" asp-for="Title">
+					<span asp-validation-for="Title"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Subtitle"></label>
+					<textarea class="form-control" asp-for="Subtitle"></textarea>
+					<span asp-validation-for="Subtitle"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="About"></label>
+					<textarea class="form-control" asp-for="About"></textarea>
+					<span asp-validation-for="About"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="About2"></label>
+					<textarea class="form-control" asp-for="About2"></textarea>
+					<span asp-validation-for="About2"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="About3"></label>
+					<textarea class="form-control" asp-for="About3"></textarea>
+					<span asp-validation-for="About3"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Motto"></label>
+					<textarea class="form-control" asp-for="Motto"></textarea>
+					<span asp-validation-for="Motto"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="Motto2"></label>
+					<textarea class="form-control" asp-for="Motto2"></textarea>
+					<span asp-validation-for="Motto2"></span>
+				</div>
+				<div class="form-group">
+					<label class="form-label" asp-for="ImageUrl"></label></br>
+					<input type="file" class="form-label" asp-for="ImageUrl">
+					<span asp-validation-for="ImageUrl"></span>
+				</div>
+				<button type="submit" class="btn btn-primary">Update</button>
+			</form>
+		</div>
+	</div>
+
+</div>
+<!-- /.container-fluid -->
+@section Scripts{
+	<script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
+	<script>
+		ClassicEditor
+			.create(document.querySelector('#Motto'))
+			.catch(error => {
+				console.error(error);
+			});
+	</script>
+	<script>
+		ClassicEditor
+			.create(document.querySelector('#Motto2'))
+			.catch(error => {
+				console.error(error);
+			});
+	</script>
+}
