@@ -23,6 +23,9 @@ namespace Fiorello.Areas.admin.ViewModels.Product
 		[MinLength(10)]
         public string About { get; set; }
 
+        [Required]
+        public int Stock { get; set; }
+
         public ProductType Type { get; set; }
 
         [Required]

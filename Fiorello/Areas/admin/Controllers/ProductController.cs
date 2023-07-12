@@ -97,6 +97,7 @@ namespace Fiorello.Areas.admin.Controllers
             {
                 Title = model.Title,
                 Price = model.Price,
+                Stock = model.Stock,
                 About = model.About,
                 Type = model.Type,
                 Description = model.Description,
@@ -113,10 +114,12 @@ namespace Fiorello.Areas.admin.Controllers
                     Name = _fileService.Upload(photo),
                     Order = order++,
                     CreatedAt = DateTime.Now,
-                    Product = product
+                    Product = product,
                 };
                 _context.ProductPhotos.Add(productPhoto);
             }
+
+            product.ProductPhotos.FirstOrDefault().IsMain = true;
             _context.SaveChanges();
 
             return RedirectToAction(nameof(Index));
@@ -186,6 +189,7 @@ namespace Fiorello.Areas.admin.Controllers
                 Title = product.Title,
                 Price = product.Price,
                 About = product.About,
+                Stock = product.Stock,
                 Type = product.Type,
                 Description = product.Description,
                 AdditionalInfo = product.AdditionalInformation,
@@ -243,6 +247,7 @@ namespace Fiorello.Areas.admin.Controllers
             product.Title = model.Title;
             product.Description = model.Description;
             product.Price = model.Price;
+            product.Stock = model.Stock;
             product.About = model.About;
             product.Type = model.Type;
             product.AdditionalInformation = model.AdditionalInfo;

@@ -32,6 +32,7 @@ namespace Fiorello.Areas.admin.Controllers
 			if (!ModelState.IsValid) return View();
 
 			var user = await _userManager.FindByNameAsync(model.Username);
+
 			if (user is null)
 			{
 				ModelState.AddModelError(string.Empty, "Username or password is incorrect");
@@ -50,7 +51,6 @@ namespace Fiorello.Areas.admin.Controllers
 				ModelState.AddModelError(string.Empty, "You don't have permission to admin panel");
 				return View();
 			}
-
 			return RedirectToAction(nameof(Index), "dashboard");
 		}
 

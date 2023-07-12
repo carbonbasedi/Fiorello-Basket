@@ -88,7 +88,14 @@ namespace Fiorello.Controllers
 			if (!ModelState.IsValid) return View();
 
 			var user = await _userManager.FindByNameAsync(model.Username);
-			if(user is null)
+
+			if (!user.EmailConfirmed)
+			{
+				ModelState.AddModelError(string.Empty, "Email address must be confirmed to Login");
+				return View();
+			}
+
+			if (user is null)
 			{
 				ModelState.AddModelError(string.Empty, "Username or password is incorrect");
 				return View();

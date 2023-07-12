@@ -37,7 +37,7 @@ namespace Fiorello.Utilities
 					Country = "Azerbaijan",
 				};
 
-				var result = await userManager.CreateAsync(user, "Admin123!");
+				var result = await userManager.CreateAsync(user, "Admin1234!");
 
 				if (!result.Succeeded)
 				{

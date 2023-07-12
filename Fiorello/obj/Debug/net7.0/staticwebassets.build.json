@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JkCa1lC8joawzgA4X2+mcquekn7wBYKmZxhXfHb2k0I=",
+  "Hash": "2UrXY5WJRz4fsyAmKM7dJipQUe2Z9pXqO9c8SrG4BD0=",
   "Source": "Fiorello",
   "BasePath": "_content/Fiorello",
   "Mode": "Default",
@@ -34136,6 +34136,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\38125450-afe9-4c21-9a42-b25c9d086cc1 feature-work-4.jpg"
     },
     {
+      "Identity": "C:\\Users\\rusla\\source\\repos\\Fiorello\\Fiorello\\wwwroot\\assets\\img\\42f97263-6b4b-4842-90ae-fa79cd35717f feature-work-3.jpg",
+      "SourceId": "Fiorello",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\rusla\\source\\repos\\Fiorello\\Fiorello\\wwwroot\\",
+      "BasePath": "_content/Fiorello",
+      "RelativePath": "assets/img/42f97263-6b4b-4842-90ae-fa79cd35717f feature-work-3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\42f97263-6b4b-4842-90ae-fa79cd35717f feature-work-3.jpg"
+    },
+    {
       "Identity": "C:\\Users\\rusla\\source\\repos\\Fiorello\\Fiorello\\wwwroot\\assets\\img\\56909ac8-3888-4a6f-8c20-51f3a88a8f5e inception.jpg",
       "SourceId": "Fiorello",
       "SourceType": "Discovered",
@@ -34151,6 +34168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\56909ac8-3888-4a6f-8c20-51f3a88a8f5e inception.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\rusla\\source\\repos\\Fiorello\\Fiorello\\wwwroot\\assets\\img\\61ff5d1b-2eb4-45e8-ae18-9b1b58d0d814 feature-work-1.jpg",
+      "SourceId": "Fiorello",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\rusla\\source\\repos\\Fiorello\\Fiorello\\wwwroot\\",
+      "BasePath": "_content/Fiorello",
+      "RelativePath": "assets/img/61ff5d1b-2eb4-45e8-ae18-9b1b58d0d814 feature-work-1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\61ff5d1b-2eb4-45e8-ae18-9b1b58d0d814 feature-work-1.jpg"
     },
     {
       "Identity": "C:\\Users\\rusla\\source\\repos\\Fiorello\\Fiorello\\wwwroot\\assets\\img\\643b7bd8-51dd-4a0c-bb3e-66b205186bed shop-category-img-6.jpg",

@@ -10,12 +10,12 @@ namespace Fiorello.Controllers
 		private readonly AppDbContext _context;
 
 		public ProductsController(AppDbContext context)
-        {
+		{
 			_context = context;
 		}
 
 		[HttpGet]
-        public IActionResult Index()
+		public IActionResult Index()
 		{
 			var model = new ProductsIndexVM
 			{
@@ -30,7 +30,7 @@ namespace Fiorello.Controllers
 		{
 			var model = new ProductLoadMoreVM
 			{
-				Products = _context.Products.Include(p => p.ProductPhotos).Where(p => !p.IsDeleted).OrderByDescending(p => p.Id).Skip(4*skipRow).Take(4).ToList()
+				Products = _context.Products.Include(p => p.ProductPhotos).Where(p => !p.IsDeleted).OrderByDescending(p => p.Id).Skip(4 * skipRow).Take(4).ToList()
 			};
 			return PartialView("_ProductComponentPartial", model);
 		}
